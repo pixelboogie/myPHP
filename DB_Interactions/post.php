@@ -1,5 +1,5 @@
 <?php
-    require('config/config.php');
+    require('config/db.php');
 
     $query = 'SELECT * FROM  posts WHERE id = 1';
 
