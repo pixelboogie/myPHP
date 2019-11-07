@@ -1,5 +1,6 @@
 <?php
     require('config/db.php');
+    // require('config/config.php');
 
     $query = 'SELECT * FROM  posts';
 
@@ -23,6 +24,13 @@
 <meta charset="utf-8">
 <title>PHP Blog</title>
 <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+<style>
+.myRight{
+    /* position: absolute;
+    right: 10px; 
+    bottom: 10px; */
+}
+</style>
 </head>
 <body>
     <div class="container">
@@ -35,7 +43,8 @@
                             <small class="card-text">Created on <?php echo $post['created_at']; ?> by
                             <?php echo $post['author']; ?></small>
                             <p class="card-text"><?php echo $post['body']; ?></p>
-                            <a class="btn btn-detault" href="post.php?id=<?php echo $post['id']; ?>">Read More</a>
+                            <a class="btn btn-primary btn-sm" href="<?php echo ROOT_URL; ?>post.php?id=<?php echo $post['id']; ?>">Read More</a>
+                          
                             </div>
                           
                 </div> 

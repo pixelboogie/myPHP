@@ -1,7 +1,10 @@
 <?php
     require('config/db.php');
+    // require('config/config.php');
 
-    $query = 'SELECT * FROM  posts WHERE id = 1';
+    $id = mysqli_real_escape_string($conn, $_GET['id']);
+
+    $query = 'SELECT * FROM  posts WHERE id = '.$id;
 
     // Get result
     $result = mysqli_query($conn, $query);
@@ -28,6 +31,7 @@
 </head>
 <body>
     <div class="container">
+    <a href="<?php echo ROOT_URL; ?>" class="btn btn-primary btn-small">Back</a>
         <H1><?php echo $post['title']; ?></h1>
                             <small class="card-text">Created on <?php echo $post['created_at']; ?> by
                             <?php echo $post['author']; ?></small>
