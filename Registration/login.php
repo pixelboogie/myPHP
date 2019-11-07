@@ -9,7 +9,7 @@
     <div class="header">
         <h2>Log in</h2>
     </div>
-    <form action="registration.php" method="post">
+    <form action="index.php" method="post">
         <div>
             <label for="usernmae">Username: </label>
             <input type="text" name="username">

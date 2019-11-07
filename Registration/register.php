@@ -1,3 +1,4 @@
+<?php include('server.php'); ?>
 <!DOCTYPE hmtl>
 <html>
 <head>
@@ -9,22 +10,23 @@
     <div class="header">
         <h2>Registration</h2>
     </div>
-    <form action="registration.php" method="post">
+    <form action="register.php" method="post">
+        <?php include('errors.php'); ?>
         <div>
-            <label for="usernmae">Username: </label>
+            <label for="username">Username: </label>
             <input type="text" name="username">
         </div>
         <div>
-            <label for="usernmae">Email: </label>
-            <input type="text" name="username">
+            <label for="email">Email: </label>
+            <input type="text" name="email">
         </div>
         <div>
-            <label for="usernmae">Password: </label>
-            <input type="text" name="username">
+            <label for="password_1">Password: </label>
+            <input type="text" name="password_1">
         </div>
         <div>
-            <label for="usernmae">Confirm Password: </label>
-            <input type="text" name="username">
+            <label for="password_2">Confirm Password: </label>
+            <input type="text" name="password_2">
         </div>
         <button type="submit">Submit</button>
         <p>Already a user?  <a href="login.php">Log in</a></p>
