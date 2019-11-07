@@ -2,6 +2,21 @@
     require('config/db.php');
     // require('config/config.php');
 
+    // check if deleting
+    if(isset($_POST['delete'])){
+
+        $delete_id = mysqli_real_escape_string($conn, $_POST['delete_id']);
+
+        $query = "DELETE FROM posts WHERE id = {$delete_id}";
+    
+        if(mysqli_query($conn, $query)){
+            header('Location: '.ROOT_URL.'');
+        }else{
+            echo 'ERROR: '. mysqli_error($conn);
+        }
+    }
+
+    // xxx
     $id = mysqli_real_escape_string($conn, $_GET['id']);
 
     $query = 'SELECT * FROM  posts WHERE id = '.$id;
@@ -22,23 +37,22 @@
 
     ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>PHP Blog</title>
-<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
-</head>
-<body>
+<?php include('inc/header.php'); ?>
     <div class="container">
-    <a href="<?php echo ROOT_URL; ?>" class="btn btn-primary btn-small">Back</a>
-        <H1><?php echo $post['title']; ?></h1>
-                            <small class="card-text">Created on <?php echo $post['created_at']; ?> by
-                            <?php echo $post['author']; ?></small>
-                            <p class="card-text"><?php echo $post['body']; ?></p>
-                            </div>
-                          
-                </div> 
+    <a href="<?php echo ROOT_URL; ?>" class="btn btn-secondary btn-small">Back</a>
+    <br>
+    <br>
+        <h1><?php echo $post['title']; ?></h1>
+            <p class="card-text"><?php echo $post['body']; ?></p>
+            <small class="card-text">Created on <?php echo $post['created_at']; ?> by
+            <?php echo $post['author']; ?></small>
+            <hr>
+            <form class="pull-right" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                <input type="hidden" name="delete_id" value="<?php echo $post['id']; ?>">
+                <input type="submit" name="delete" value="Delete" class="btn btn-danger">
+            </form>
+            <a href="<?php echo ROOT_URL; ?>editpost.php?id=<?php echo $post['id']; ?>" class="btn btn-primary btn-small">Edit</a>
+    </div>
+                
 
-</body> 
-</html>
+<?php include('inc/footer.php'); ?>

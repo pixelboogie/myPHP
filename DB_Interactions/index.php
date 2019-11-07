@@ -2,14 +2,14 @@
     require('config/db.php');
     // require('config/config.php');
 
-    $query = 'SELECT * FROM  posts';
+    $query = 'SELECT * FROM  posts ORDER BY created_at DESC';
 
     // Get result
     $result = mysqli_query($conn, $query);
 
     // Fetch data
     $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    var_dump($posts);
+    // var_dump($posts);
     // Free result
     mysqli_free_result($result);
 
@@ -18,21 +18,7 @@
 
     ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>PHP Blog</title>
-<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
-<style>
-.myRight{
-    /* position: absolute;
-    right: 10px; 
-    bottom: 10px; */
-}
-</style>
-</head>
-<body>
+<?php include('inc/header.php'); ?>
     <div class="container">
         <H1>Blog Posts</h1>
             <?php foreach($posts as $post) : ?>
@@ -50,5 +36,4 @@
                 </div> 
                 <div style="height: 20px"></div>
             <?php endforeach; ?>
-</body> 
-</html>
+<?php include('inc/footer.php'); ?>
