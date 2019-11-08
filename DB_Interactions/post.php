@@ -42,6 +42,7 @@
     <a href="<?php echo ROOT_URL; ?>" class="btn btn-secondary btn-small">Back</a>
     <br>
     <br>
+    <div>
         <h1><?php echo $post['title']; ?></h1>
         <small class="card-text">Created on <?php echo $post['created_at']; ?> by
             <?php echo $post['author']; ?></small>
@@ -57,3 +58,4 @@
                 
 
 <?php include('inc/footer.php'); ?>
+
