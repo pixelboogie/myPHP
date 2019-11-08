@@ -37,6 +37,7 @@
                 <label>Body</label>
                 <textarea name="body" class="form-control"></textarea>
             </div>
+            <br>
             <input type="submit" name="submit" value="submit" class="btn btn-primary">
         </form>
     </div> 

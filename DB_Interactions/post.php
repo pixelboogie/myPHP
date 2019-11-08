@@ -43,11 +43,12 @@
     <br>
     <br>
         <h1><?php echo $post['title']; ?></h1>
-            <p class="card-text"><?php echo $post['body']; ?></p>
-            <small class="card-text">Created on <?php echo $post['created_at']; ?> by
+        <small class="card-text">Created on <?php echo $post['created_at']; ?> by
             <?php echo $post['author']; ?></small>
+            <p class="card-text"><?php echo $post['body']; ?></p>
+
             <hr>
-            <form class="pull-right" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+            <form class="float-right" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                 <input type="hidden" name="delete_id" value="<?php echo $post['id']; ?>">
                 <input type="submit" name="delete" value="Delete" class="btn btn-danger">
             </form>

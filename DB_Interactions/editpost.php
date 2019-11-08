@@ -45,7 +45,7 @@
 
 <?php include('inc/header.php'); ?>
     <div class="container">
-        <H1>Add Posts</h1>
+        <H1>Edit Posts</h1>
         <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
             <div class="form-=group">
                 <label>Title</label>
@@ -59,6 +59,7 @@
                 <label>Body</label>
                 <textarea name="body" class="form-control"><?php echo $post['body']; ?></textarea>
             </div>
+            <br>
             <input type="hidden" name="update_id" value="<?php echo $post['id']; ?>">
             <input type="submit" name="submit" value="submit" class="btn btn-primary">
         </form>
