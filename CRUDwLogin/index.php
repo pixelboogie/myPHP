@@ -35,12 +35,12 @@
    <body>
 	
       <div class="container">
-         <div >
-         <div class="row justify-content-md-center h3 mt-2 mb-4"><h1>Login</h1></div>
+         <div>
             <div class="row justify-content-md-center">
                <div class="form-group">
+               <h1 class="mt-4 mb-3">Login</h1>
                   <form action = "" method = "post" >
-                     <label >UserName  : </label> <input type = "text" name = "username" class="form-control" />
+                     <label >Username  : </label> <input type = "text" name = "username" class="form-control" />
                      <label>Password  : </label> <input type = "password" name = "password" class="form-control mb-3" />
                      <input type = "submit" value = " Submit " class="btn btn-primary"/>
                   </form>
