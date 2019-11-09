@@ -1,19 +1,16 @@
 <?php
     require('config/db.php');
-    // require('config/config.php');
+
     include('session.php');
-    // session_start();
 
     // check if submitted
     if(isset($_POST['submit'])){
-        // echo 'Submitted';
+
         $update_id = mysqli_real_escape_string($conn, $_POST['update_id']);
         $title = mysqli_real_escape_string($conn, $_POST['title']);
         $author = mysqli_real_escape_string($conn, $_POST['author']);
         $body = mysqli_real_escape_string($conn, $_POST['body']);
 
-
-        // $query = "INSERT INTO posts(title, author, body) VALUES ('$title', '$author', '$body')";
         $query = "UPDATE posts SET 
                 title='$title',
                 author ='$author',
@@ -35,8 +32,6 @@
 
     // Fetch data
     $post = mysqli_fetch_assoc($result);
-    // var_dump($posts);
-
 
     // Free result
     mysqli_free_result($result);

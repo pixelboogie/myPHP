@@ -1,8 +1,7 @@
 <?php
     require('config/db.php');
-    // require('config/config.php');
+
     include('session.php');
-    // session_start();
 
     $query = 'SELECT * FROM  posts ORDER BY created_at DESC';
 
@@ -11,7 +10,7 @@
 
     // Fetch data
     $posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    // var_dump($posts);
+
     // Free result
     mysqli_free_result($result);
 
