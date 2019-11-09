@@ -1,7 +1,7 @@
 <?php
    include("config/db.php");
    session_start();
-   
+   $error = "";
    if($_SERVER["REQUEST_METHOD"] == "POST") {
 
       // username and password sent from form 
@@ -13,7 +13,7 @@
       $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
       
       $count = mysqli_num_rows($result);
-      
+   
       // If result matched $myusername and $mypassword, table row must be 1 row
       if($count == 1) {
 
@@ -21,7 +21,8 @@
          
          header("location: blog.php");
       }else {
-         $error = "Your Login Name or Password is invalid";
+         $error = "Invalid, try again. ";
+         // echo $error;
       }
    }
 ?>
@@ -44,6 +45,7 @@
                      <label>Password  : </label> <input type = "password" name = "password" class="form-control mb-3" />
                      <input type = "submit" value = " Submit " class="btn btn-primary"/>
                   </form>
+                  <div><?php echo $error; ?></div>
                </div>
 				</div>
          </div>
