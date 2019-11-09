@@ -1,5 +1,6 @@
 <?php
-   include("config.php");
+   include("config/db.php");
+   // include('session.php');
    session_start();
    
    if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -7,7 +8,9 @@
       
       $myusername = mysqli_real_escape_string($db,$_POST['username']);
       $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
-      
+
+      // $db = mysqli_connect(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+
       $sql = "SELECT * FROM myUsers WHERE username = '$myusername' and password = '$mypassword'";
       $result = mysqli_query($db, $sql);
       $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -21,7 +24,7 @@
         //  session_register($myusername);
          $_SESSION['login_user'] = $myusername;
          
-         header("location: welcome.php");
+         header("location: blog.php");
       }else {
          $error = "Your Login Name or Password is invalid";
       }
